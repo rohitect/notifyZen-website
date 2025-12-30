@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | NotifyZen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: white; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .gradient-text { background: linear-gradient(135deg, #6366F1 0%, #2DD4BF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="antialiased min-h-screen">
+
+    <nav class="p-8">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 bg-indigo-600/20 rounded-xl flex items-center justify-center group-hover:bg-indigo-600 transition-all">
+                    <i data-lucide="arrow-left" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight">Back to <span class="gradient-text">Home</span></span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-8 pb-32">
+        <header class="mb-16 mt-12">
+            <h1 class="text-5xl font-extrabold mb-4 text-white">Privacy Policy</h1>
+            <p class="text-slate-400 font-mono text-sm uppercase tracking-widest">Effective Date: December 30, 2025</p>
+        </header>
+
+        <div class="glass rounded-[2.5rem] p-10 md:p-16 space-y-12 leading-relaxed text-slate-300">
+            <section>
+                <div class="flex items-center space-x-4 mb-6">
+                    <i data-lucide="heart" class="text-pink-500 w-6 h-6"></i>
+                    <h2 class="text-2xl font-bold text-white uppercase tracking-wider">1. Our Philosophy</h2>
+                </div>
+                <p>
+                    NotifyZen was built on a simple premise: your data is yours. We believe that utility should not come at the cost of privacy. Our application is designed to function as a <strong>completely autonomous local service</strong>.
+                </p>
+            </section>
+
+            <section>
+                <div class="flex items-center space-x-4 mb-6">
+                    <i data-lucide="shield-off" class="text-red-400 w-6 h-6"></i>
+                    <h2 class="text-2xl font-bold text-white uppercase tracking-wider">2. Zero Data Collection</h2>
+                </div>
+                <p>
+                    NotifyZen <strong>does not collect, store, or transmit</strong> any personal information, notification content, or usage data to our servers. In fact, we do not even maintain servers capable of receiving such data. 
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/5 text-center">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5 mx-auto mb-2 text-slate-500"></i>
+                        <span class="text-xs font-bold text-slate-400">NO ANALYTICS</span>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/5 text-center">
+                        <i data-lucide="cloud-off" class="w-5 h-5 mx-auto mb-2 text-slate-500"></i>
+                        <span class="text-xs font-bold text-slate-400">NO CLOUD SYNC</span>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/5 text-center">
+                        <i data-lucide="activity" class="w-5 h-5 mx-auto mb-2 text-slate-500"></i>
+                        <span class="text-xs font-bold text-slate-400">NO TRACKING</span>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-center space-x-4 mb-6">
+                    <i data-lucide="cpu" class="text-teal-400 w-6 h-6"></i>
+                    <h2 class="text-2xl font-bold text-white uppercase tracking-wider">3. Local Processing Only</h2>
+                </div>
+                <p>
+                    All notification interception, rule matching, and action execution happen exclusively on your device hardware. The app requires <strong>Notification Access</strong> to perform its functions, but this data never leaves your device's internal memory.
+                </p>
+            </section>
+
+            <section>
+                <div class="flex items-center space-x-4 mb-6">
+                    <i data-lucide="key" class="text-indigo-400 w-6 h-6"></i>
+                    <h2 class="text-2xl font-bold text-white uppercase tracking-wider">4. Permissions</h2>
+                </div>
+                <p>The app requests the following permissions for the reasons stated:</p>
+                <div class="grid md:grid-cols-2 gap-4 mt-6">
+                    <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
+                        <span class="text-indigo-400 font-bold block mb-2">Notification Access</span>
+                        <span class="text-sm">To listen for incoming alerts and apply your rules.</span>
+                    </div>
+                    <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
+                        <span class="text-indigo-400 font-bold block mb-2">Camera/Flash</span>
+                        <span class="text-sm">Only to trigger the torch pattern actions you design.</span>
+                    </div>
+                    <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
+                        <span class="text-indigo-400 font-bold block mb-2">DND Access</span>
+                        <span class="text-sm">To manage ringer modes and Do Not Disturb states.</span>
+                    </div>
+                    <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
+                        <span class="text-indigo-400 font-bold block mb-2">Storage</span>
+                        <span class="text-sm">Only for local backups initiated manually by you.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-center space-x-4 mb-6">
+                    <i data-lucide="mail" class="text-blue-400 w-6 h-6"></i>
+                    <h2 class="text-2xl font-bold text-white uppercase tracking-wider">5. Contact</h2>
+                </div>
+                <p>
+                    Since we do not collect any of your data, we cannot identify you through your usage. If you have questions regarding this policy, please reach out via email:
+                </p>
+                <p class="mt-6">
+                    <a href="mailto:91.rranjan+notifyZen@gmail.com?subject=Privacy" class="bg-indigo-600/20 hover:bg-indigo-600 transition-colors px-6 py-3 rounded-xl text-white font-bold inline-flex items-center space-x-2">
+                        <span>Contact Privacy Support</span>
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>
+                </p>
+            </section>
+        </div>
+
+        <footer class="mt-20 text-center">
+            <p class="text-slate-600 text-sm font-mono tracking-widest">© 2025 NotifyZen. Your data, your device, your control.</p>
+        </footer>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

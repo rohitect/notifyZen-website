@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotifyZen | Intelligent Notification Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: white; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .gradient-text { background: linear-gradient(135deg, #6366F1 0%, #2DD4BF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%); z-index: -1; }
+        .card-hover:hover { transform: translateY(-10px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border-color: rgba(99, 102, 241, 0.4); }
+        .floating { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+        .blob { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); animation: morph 10s linear infinite; opacity: 0.2; filter: blur(40px); }
+        @keyframes morph { 0%, 100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; } 25% { border-radius: 73% 27% 23% 77% / 55% 88% 12% 45%; } 50% { border-radius: 37% 63% 51% 49% / 30% 30% 70% 70%; } }
+        @keyframes scan { 0%, 100% { top: 0%; opacity: 0; } 50% { top: 100%; opacity: 1; } }
+        .scan-line { animation: scan 3s ease-in-out infinite; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass py-4 px-8 border-none">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                    <i data-lucide="bell" class="text-white w-6 h-6"></i>
+                </div>
+                <span class="text-2xl font-extrabold tracking-tight italic text-white">Notify<span class="gradient-text">Zen</span></span>
+            </div>
+            <div class="hidden md:flex space-x-10 text-sm font-semibold text-slate-400">
+                <a href="#features" class="hover:text-white transition-colors uppercase tracking-widest">Features</a>
+                <a href="#rules" class="hover:text-white transition-colors uppercase tracking-widest">Intelligence</a>
+                <a href="#security" class="hover:text-white transition-colors uppercase tracking-widest">Security</a>
+                <a href="#privacy" class="hover:text-white transition-colors uppercase tracking-widest">Privacy</a>
+                <a href="mailto:91.rranjan+notifyZen@gmail.com?subject=Contact" class="hover:text-white transition-colors uppercase tracking-widest">Contact</a>
+            </div>
+            <a href="#" class="bg-indigo-600 hover:bg-indigo-500 px-6 py-2.5 rounded-full font-bold text-sm transition-all hover:scale-105 active:scale-95 shadow-xl shadow-indigo-600/20 text-white">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 px-8 overflow-hidden">
+        <div class="hero-glow top-[-100px] left-[-100px]"></div>
+        <div class="hero-glow bottom-[-200px] right-[-200px]"></div>
+        <div class="blob absolute w-96 h-96 top-40 right-20"></div>
+        
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <h1 class="text-6xl md:text-8xl font-extrabold leading-none mb-8 tracking-tighter">
+                    Silence the <span class="gradient-text">Noise.</span><br>Capture the <span class="gradient-text">Zen.</span>
+                </h1>
+                <p class="text-xl text-slate-400 mb-10 leading-relaxed max-w-lg">
+                    The world's first notification manager that understands context. Don't just block alerts—transform them into intelligence using our visual rule engine.
+                </p>
+                <div class="flex space-x-4">
+                    <button class="bg-white text-slate-900 px-8 py-4 rounded-2xl font-extrabold flex items-center space-x-3 transition-all hover:bg-slate-100 hover:scale-105 active:scale-95">
+                        <i data-lucide="play" class="fill-current w-5 h-5"></i>
+                        <span>Download App</span>
+                    </button>
+                    <button class="glass px-8 py-4 rounded-2xl font-extrabold transition-all hover:bg-white/10 flex items-center space-x-3 text-white">
+                        <i data-lucide="monitor-play" class="w-5 h-5 text-indigo-400"></i>
+                        <span>Watch Demo</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="relative" data-aos="zoom-in" data-aos-duration="1200">
+                <!-- Mockup App Image -->
+                <div class="relative z-10 floating">
+                    <div class="w-72 h-[600px] mx-auto bg-slate-800 rounded-[3rem] border-[8px] border-slate-700 overflow-hidden shadow-2xl relative text-white">
+                        <div class="absolute top-0 w-full h-6 bg-slate-700 rounded-b-xl"></div>
+                        <div class="p-6 pt-12 space-y-4">
+                            <div class="h-4 w-20 bg-indigo-500/20 rounded-full text-white"></div>
+                            <div class="space-y-3">
+                                <div class="glass p-4 rounded-2xl border-indigo-500/30">
+                                    <div class="flex items-center space-x-3 mb-2">
+                                        <div class="w-6 h-6 rounded-full bg-indigo-500"></div>
+                                        <div class="h-2 w-16 bg-white/20 rounded-full"></div>
+                                    </div>
+                                    <div class="h-2 w-full bg-white/10 rounded-full mb-2"></div>
+                                    <div class="h-2 w-2/3 bg-white/10 rounded-full"></div>
+                                </div>
+                                <div class="glass p-4 rounded-2xl opacity-50">
+                                    <div class="h-2 w-3/4 bg-white/10 rounded-full"></div>
+                                </div>
+                                <div class="glass p-4 rounded-2xl opacity-30">
+                                    <div class="h-2 w-1/2 bg-white/10 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-10 left-0 w-full px-6">
+                                <div class="h-12 w-full bg-indigo-600 rounded-xl flex items-center justify-center font-bold text-xs uppercase tracking-widest">Visual Builder</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Background decorative elements -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-indigo-500/10 rounded-full scale-110"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border border-indigo-500/5 rounded-full scale-125"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section id="features" class="py-32 px-8 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto text-white">
+            <div class="text-center mb-24" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Built for the <span class="gradient-text">Digital Elite</span></h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">Most apps just turn off notifications. NotifyZen manages them surgically. Total control over your mobile digital well-being.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left text-white">
+                <!-- Feature 1 -->
+                <div class="glass p-10 rounded-[2.5rem] card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-indigo-600/20 rounded-2xl flex items-center justify-center mb-8 mx-auto md:mx-0 text-white">
+                        <i data-lucide="cpu" class="text-indigo-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Rule-Based Flow</h3>
+                    <p class="text-slate-400 leading-relaxed">Create complex logic chains. "IF notification contains OTP AND screen is OFF THEN Speak it aloud." Total mastery over hardware.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="glass p-10 rounded-[2.5rem] border-teal-500/20 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-teal-600/20 rounded-2xl flex items-center justify-center mb-8 mx-auto md:mx-0">
+                        <i data-lucide="shield-check" class="text-teal-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Privacy First</h3>
+                    <p class="text-slate-400 leading-relaxed">No cloud sync. No servers. No tracking. Every single notification is processed locally on your device hardware. Zero internet access.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass p-10 rounded-[2.5rem] card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-purple-600/20 rounded-2xl flex items-center justify-center mb-8 mx-auto md:mx-0">
+                        <i data-lucide="settings-2" class="text-purple-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Hardware Control</h3>
+                    <p class="text-slate-400 leading-relaxed">Design custom vibration patterns, Morse code torch flashes, or voice personas. Your phone speaks your language, literally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Rule Builder Section -->
+    <section id="rules" class="py-32 px-8 text-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-center">
+            <div class="order-2 md:order-1" data-aos="fade-right">
+                <div class="space-y-10">
+                    <div class="flex items-start space-x-6">
+                        <div class="mt-1 w-12 h-12 rounded-full border border-indigo-500/30 flex items-center justify-center font-bold text-indigo-500 flex-shrink-0">01</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Pick Your Trigger</h4>
+                            <p class="text-slate-400">Monitor specific apps, keywords, or system states like Wi-Fi or Bluetooth connectivity.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-6">
+                        <div class="mt-1 w-12 h-12 rounded-full border border-teal-500/30 flex items-center justify-center font-bold text-teal-500 flex-shrink-0">02</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Define Conditions</h4>
+                            <p class="text-slate-400">Nested AND/OR logic. Check if you're on a call, in a car, or if it's past midnight.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-6">
+                        <div class="mt-1 w-12 h-12 rounded-full border border-pink-500/30 flex items-center justify-center font-bold text-pink-500 flex-shrink-0">03</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Execute Actions</h4>
+                            <p class="text-slate-400">Dismiss, Snooze, Hide Content, Flash Torch, or Speak. Chain multiple actions together.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="order-1 md:order-2 text-white" data-aos="fade-left">
+                <h2 class="text-5xl font-extrabold mb-8 leading-tight italic">Programming your phone,<br><span class="gradient-text">without code.</span></h2>
+                <p class="text-xl text-slate-400 mb-8 leading-relaxed">
+                    Our Visual Rule Builder is the heart of NotifyZen. It gives you the power of a developer with the ease of a simple drag-and-drop interface.
+                </p>
+                <div class="glass p-8 rounded-3xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-600/10 blur-3xl"></div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-xs font-black text-indigo-400 tracking-[0.2em] uppercase font-mono">Active Trace</span>
+                        <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    </div>
+                    <div class="space-y-4 font-mono text-sm leading-relaxed">
+                        <div class="flex items-start space-x-3">
+                            <span class="text-slate-600 flex-shrink-0">14:02:01</span>
+                            <span class="text-white">Notification received: <span class="text-teal-400 font-bold">WhatsApp</span></span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-slate-600 flex-shrink-0">14:02:01</span>
+                            <span class="text-indigo-400">Checking rule: "VIP Override"</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-slate-600 flex-shrink-0">14:02:02</span>
+                            <span class="text-green-400">Condition matched: <span class="text-slate-300 italic">[Title contains "Mom"]</span></span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-slate-600 flex-shrink-0">14:02:02</span>
+                            <span class="text-pink-400 font-bold">Executing: <span class="text-slate-300">Unsilence & Vibrate</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profiles Section -->
+    <section class="py-32 px-8 bg-slate-900/30 overflow-hidden text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-widest uppercase mb-6">
+                        <i data-lucide="layers" class="w-4 h-4"></i>
+                        <span>Context Awareness</span>
+                    </div>
+                    <h2 class="text-5xl font-extrabold mb-8 leading-tight">Adaptive <span class="gradient-text">Profiles.</span></h2>
+                    <p class="text-xl text-slate-400 mb-10 leading-relaxed">
+                        NotifyZen doesn't just run rules; it understands your environment. Switch between <strong>Home, Work, Gym, or Sleep</strong> profiles. Rules can be global or exclusive to a specific context.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="glass p-6 rounded-2xl flex items-center space-x-4 border-l-4 border-l-indigo-500">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+                                <i data-lucide="home"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Home Profile</h4>
+                                <p class="text-sm text-slate-500">Mute all work emails, Speak aloud social messages.</p>
+                            </div>
+                        </div>
+                        <div class="glass p-6 rounded-2xl flex items-center space-x-4 border-l-4 border-l-teal-500 opacity-60">
+                            <div class="w-12 h-12 rounded-xl bg-teal-500/20 flex items-center justify-center text-teal-400">
+                                <i data-lucide="briefcase"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Work Profile</h4>
+                                <p class="text-sm text-slate-500">Priority bypass for Slack, Vibrate for high-priority Jira.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative" data-aos="fade-left">
+                    <div class="relative z-10 grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <div class="glass p-8 rounded-[2rem] flex flex-col items-center justify-center text-center animate-pulse">
+                                <i data-lucide="coffee" class="w-10 h-10 mb-4 text-orange-400"></i>
+                                <span class="text-sm font-bold">Morning</span>
+                            </div>
+                            <div class="glass p-8 rounded-[2rem] flex flex-col items-center justify-center text-center border-indigo-500/50">
+                                <i data-lucide="moon" class="w-10 h-10 mb-4 text-indigo-400"></i>
+                                <span class="text-sm font-bold text-white">Night</span>
+                            </div>
+                        </div>
+                        <div class="pt-12 space-y-4">
+                            <div class="glass p-8 rounded-[2rem] flex flex-col items-center justify-center text-center">
+                                <i data-lucide="dumbbell" class="w-10 h-10 mb-4 text-pink-400"></i>
+                                <span class="text-sm font-bold">Gym</span>
+                            </div>
+                            <div class="glass p-8 rounded-[2rem] flex flex-col items-center justify-center text-center">
+                                <i data-lucide="focus" class="w-10 h-10 mb-4 text-teal-400"></i>
+                                <span class="text-sm font-bold">Focus</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-indigo-600/10 blur-[120px] -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section id="security" class="py-32 px-8 text-white">
+        <div class="max-w-7xl mx-auto glass rounded-[3rem] p-12 md:p-24 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent"></div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative h-80 flex items-center justify-center" data-aos="zoom-in">
+                    <div class="relative">
+                        <i data-lucide="fingerprint" class="w-48 h-48 text-indigo-500/20"></i>
+                        <div class="absolute top-0 left-0 w-full h-1 bg-indigo-400 shadow-[0_0_20px_rgba(129,140,248,0.8)] scan-line"></div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-up">
+                    <h2 class="text-5xl font-extrabold mb-8">Biometric <span class="gradient-text">Vault.</span></h2>
+                    <p class="text-xl text-slate-400 mb-8 leading-relaxed">
+                        Your notification history contains your life. Secure it with <strong>on-device encryption</strong> and biometric locking.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center space-x-3 text-slate-300">
+                            <i data-lucide="check" class="text-teal-400 w-5 h-5"></i>
+                            <span>Fingerprint & Face ID Unlock</span>
+                        </li>
+                        <li class="flex items-center space-x-3 text-slate-300">
+                            <i data-lucide="check" class="text-teal-400 w-5 h-5"></i>
+                            <span>Stealth Mode: Hide from App Switcher</span>
+                        </li>
+                        <li class="flex items-center space-x-3 text-slate-300">
+                            <i data-lucide="check" class="text-teal-400 w-5 h-5"></i>
+                            <span>Automatic Session Lock</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rule Sharing Section -->
+    <section class="py-32 px-8 overflow-hidden text-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <div data-aos="fade-up">
+                <h2 class="text-5xl font-extrabold mb-8 text-white">Share the <span class="gradient-text">Logic.</span></h2>
+                <p class="text-xl text-slate-400 max-w-3xl mx-auto mb-16">
+                    Found a perfect set of rules? Export them as a lightweight file and share them with others. No account needed—just pure, portable intelligence.
+                </p>
+            </div>
+
+            <div class="relative h-64 flex items-center justify-center">
+                <div class="absolute w-full h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
+                <div class="flex items-center justify-center space-x-12 md:space-x-32 relative z-10">
+                    <div class="glass p-6 rounded-3xl" data-aos="fade-right" data-aos-delay="200">
+                        <i data-lucide="smartphone" class="w-12 h-12 text-slate-400"></i>
+                    </div>
+                    <div class="relative group" data-aos="zoom-in">
+                        <div class="absolute inset-0 bg-indigo-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                        <div class="bg-indigo-600 p-8 rounded-[2rem] shadow-2xl relative cursor-pointer hover:scale-110 transition-transform">
+                            <i data-lucide="share-2" class="w-10 h-10 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="glass p-6 rounded-3xl" data-aos="fade-left" data-aos-delay="400">
+                        <i data-lucide="tablet" class="w-12 h-12 text-slate-400 text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Feature -->
+    <section id="privacy" class="py-32 px-8 bg-slate-900/50 relative text-center text-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-12 inline-block p-6 rounded-[2rem] bg-indigo-600/10 text-indigo-500" data-aos="zoom-in">
+                <i data-lucide="lock" class="w-12 h-12"></i>
+            </div>
+            <h2 class="text-5xl font-extrabold mb-8">Total Sovereignty</h2>
+            <p class="text-xl text-slate-400 mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                NotifyZen has <strong>zero</strong> network permissions. Every notification is processed strictly on your hardware. Your data never leaves your device.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-white" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass px-8 py-4 rounded-full flex items-center space-x-3">
+                    <i data-lucide="database" class="text-green-400 w-5 h-5"></i>
+                    <span class="text-sm font-bold text-white">Secure Local Storage</span>
+                </div>
+                <div class="glass px-8 py-4 rounded-full flex items-center space-x-3">
+                    <i data-lucide="hard-drive" class="text-green-400 w-5 h-5"></i>
+                    <span class="text-sm font-bold text-white">Private Logic Engine</span>
+                </div>
+                <div class="glass px-8 py-4 rounded-full flex items-center space-x-3">
+                    <i data-lucide="globe-2" class="text-red-400 w-5 h-5"></i>
+                    <span class="text-sm font-bold text-white">Zero Cloud Reliance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-8 border-t border-white/5 text-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div>
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                        <i data-lucide="bell" class="text-white w-4 h-4"></i>
+                    </div>
+                    <span class="text-xl font-extrabold tracking-tight text-white">Notify<span class="gradient-text">Zen</span></span>
+                </div>
+                <p class="text-slate-500 text-sm max-w-xs leading-relaxed">Elevate your mobile experience with intelligent, context-aware notification management.</p>
+            </div>
+            
+            <div class="text-center md:text-right">
+                <div class="mb-4 flex flex-wrap justify-center md:justify-end gap-8">
+                    <a href="privacy.html" class="text-slate-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-widest">Privacy Policy</a>
+                    <a href="mailto:91.rranjan+notifyZen@gmail.com?subject=Contact" class="text-slate-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-widest">Contact Support</a>
+                </div>
+                <p class="text-slate-600 text-xs mt-8 font-mono tracking-widest uppercase">© 2025 NotifyZen. Handcrafted for privacy maximalists.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            mirror: false
+        });
+        lucide.createIcons();
+    </script>
+</body>
+</html>
